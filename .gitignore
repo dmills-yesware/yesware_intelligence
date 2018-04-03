@@ -57,11 +57,10 @@ typings/
 # dotenv environment variables file
 .env
 
+# Compiled output
+dist/
 
+# Mac
 .DS_Store
 
-node_modules
-npm-debug.log
 
-dist/
-packages/
