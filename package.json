@@ -25,6 +25,7 @@
   "devDependencies": {
     "@types/chrome": "^0.x.x",
     "@types/lodash": "^4.14.106",
+    "@types/node": "^9.6.2",
     "babel-cli": "6.x.x",
     "babel-core": "6.x.x",
     "babel-loader": "7.x.x",
@@ -62,6 +63,17 @@
     "yargs": "^8.x.x"
   },
   "dependencies": {
-    "lodash": "^4.17.5"
+    "@angular/common": "^5.2.9",
+    "@angular/compiler": "^5.2.9",
+    "@angular/core": "^5.2.9",
+    "@angular/forms": "^5.2.9",
+    "@angular/http": "^5.2.9",
+    "@angular/platform-browser": "^5.2.9",
+    "@angular/platform-browser-dynamic": "^5.2.9",
+    "@angular/router": "^5.2.9",
+    "core-js": "^2.5.4",
+    "lodash": "^4.17.5",
+    "rxjs": "^5.5.8",
+    "zone.js": "^0.8.25"
   }
 }
