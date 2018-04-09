@@ -6,7 +6,6 @@
       "noImplicitUseStrict": true,
       "noImplicitReturns": true,
       "strictNullChecks": true,
-      "jsx": "react",
       "lib": ["dom", "es2017"]
   }
 }

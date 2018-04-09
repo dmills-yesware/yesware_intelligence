@@ -22,32 +22,32 @@ function inc (importance) {
   // get all the files to bump version in
   return gulp.src([
     'package.json',
-    'app/manifest.json'
+    'src/manifest.json'
   ], {
     base: './'
   })
-    // bump the version number in those files
-    .pipe(bump({
-      type: importance
-    }))
-    // save it back to filesystem
-    .pipe(gulp.dest('./'))
-    // commit the changed version number
-    .pipe(git.commit('bump package version'))
-    // read only one file to get the version number
-    .pipe(filter('package.json'))
-    // **tag it in the repository**
-    .pipe(tagVersion())
+  // bump the version number in those files
+  .pipe(bump({
+    type: importance
+  }))
+  // save it back to filesystem
+  .pipe(gulp.dest('./'))
+  // commit the changed version number
+  .pipe(git.commit('bump package version'))
+  // read only one file to get the version number
+  .pipe(filter('package.json'))
+  // **tag it in the repository**
+  .pipe(tagVersion())
 }
 
 gulp.task('patch', () => {
-  return inc('patch')
-})
+  return inc('patch');
+});
 
 gulp.task('feature', () => {
-  return inc('minor')
-})
+  return inc('minor');
+});
 
 gulp.task('release', () => {
-  return inc('major')
-})
+  return inc('major');
+});

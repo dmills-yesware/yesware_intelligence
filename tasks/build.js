@@ -12,4 +12,4 @@ gulp.task('build', gulpSequence(
     'fonts',
     'chromereload'
   ]
-))
+));

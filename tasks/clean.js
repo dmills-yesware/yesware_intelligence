@@ -4,4 +4,4 @@ import args from './lib/args'
 
 gulp.task('clean', () => {
   return del(`dist/${args.vendor}/**/*`)
-})
+});

@@ -8,7 +8,7 @@ import applyBrowserPrefixesFor from './lib/applyBrowserPrefixesFor'
 import args from './lib/args'
 
 gulp.task('manifest', () => {
-  return gulp.src('app/manifest.json')
+  return gulp.src('src/manifest.json')
     .pipe(plumber({
       errorHandler: error => {
         if (error) {
@@ -24,4 +24,4 @@ gulp.task('manifest', () => {
     )
     .pipe(gulp.dest(`dist/${args.vendor}`))
     .pipe(gulpif(args.watch, livereload()))
-})
+});

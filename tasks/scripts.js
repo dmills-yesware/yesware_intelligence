@@ -8,10 +8,10 @@ import plumber from 'gulp-plumber'
 import livereload from 'gulp-livereload'
 import args from './lib/args'
 
-const ENV = args.production ? 'production' : 'development'
+const ENV = args.production ? 'production' : 'development';
 
 gulp.task('scripts', (cb) => {
-  return gulp.src(['app/scripts/*.js', 'app/scripts/*.ts'])
+  return gulp.src(['src/app/*.js', 'src/app/*.ts'])
     .pipe(plumber({
       // Webpack will log the errors
       errorHandler () {}
@@ -58,4 +58,4 @@ gulp.task('scripts', (cb) => {
     }))
     .pipe(gulp.dest(`dist/${args.vendor}/scripts`))
     .pipe(gulpif(args.watch, livereload()))
-})
+});
