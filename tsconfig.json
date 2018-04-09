@@ -6,6 +6,7 @@
       "noImplicitUseStrict": true,
       "noImplicitReturns": true,
       "strictNullChecks": true,
+      "experimentalDecorators": true,
       "lib": ["dom", "es2017"]
   }
 }
