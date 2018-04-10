@@ -23,6 +23,7 @@
     ]
   },
   "devDependencies": {
+    "@ngtools/webpack": "^6.0.0-rc.2.4",
     "@types/chrome": "^0.x.x",
     "@types/lodash": "^4.14.106",
     "@types/node": "^9.6.2",
@@ -56,9 +57,9 @@
     "standard": "^10.0.2",
     "ts-loader": "^2.x.x",
     "tslint": "^5.x.x",
-    "typescript": "^2.8.1",
+    "typescript": "^2.7.2",
     "vinyl-named": "1.x.x",
-    "webpack": "3.x.x",
+    "webpack": "^4.5.0",
     "webpack-stream": "3.x.x",
     "yargs": "^8.x.x"
   },
