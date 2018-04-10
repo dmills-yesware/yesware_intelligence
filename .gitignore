@@ -63,4 +63,7 @@ dist/
 # Mac
 .DS_Store
 
+# IntelliJ / RubyMine
+.idea/
+
 
