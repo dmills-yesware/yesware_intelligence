@@ -47,6 +47,18 @@ gulp.task('scripts', (cb) => {
           {
             test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
             loader: '@ngtools/webpack'
+          },
+          {
+            test: /\.html$/,
+            loader: "raw-loader"
+          },
+          {
+            "test": /\.css$/,
+            "use": [
+              {
+                "loader": "raw-loader"
+              }
+            ]
           }
         ]
       },
