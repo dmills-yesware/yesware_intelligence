@@ -1,12 +1,13 @@
-import gulp from 'gulp'
-import gulpif from 'gulp-if'
-import { log, colors } from 'gulp-util'
-import named from 'vinyl-named'
-import webpack from 'webpack'
-import gulpWebpack from 'webpack-stream'
-import plumber from 'gulp-plumber'
-import livereload from 'gulp-livereload'
-import args from './lib/args'
+import gulp from 'gulp';
+import gulpif from 'gulp-if';
+import { log, colors } from 'gulp-util';
+import named from 'vinyl-named';
+import webpack from 'webpack';
+import gulpWebpack from 'webpack-stream';
+import plumber from 'gulp-plumber';
+import livereload from 'gulp-livereload';
+import args from './lib/args';
+import { AngularCompilerPlugin } from '@ngtools/webpack';
 
 const ENV = args.production ? 'production' : 'development';
 
@@ -24,17 +25,28 @@ gulp.task('scripts', (cb) => {
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify(ENV),
           'process.env.VENDOR': JSON.stringify(args.vendor)
+        }),
+        new AngularCompilerPlugin({
+          tsConfigPath: 'tsconfig.json',
+          entryModule: 'src/app/app.module#AppModule',
+          sourceMap: true
         })
       ].concat(args.production ? [
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin()
       ] : []),
       module: {
+        // rules: [
+        //   {
+        //     test: /\.ts$/,
+        //     loader: 'ts-loader',
+        //     exclude: /node_modules/
+        //   }
+        // ]
         rules: [
           {
-            test: /\.ts$/,
-            loader: 'ts-loader',
-            exclude: /node_modules/
+            test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
+            loader: '@ngtools/webpack'
           }
         ]
       },
@@ -48,7 +60,7 @@ gulp.task('scripts', (cb) => {
     },
     webpack,
     (err, stats) => {
-      if (err) return
+      if (err) return;
       log(`Finished '${colors.cyan('scripts')}'`, stats.toString({
         chunks: false,
         colors: true,
