@@ -20,10 +20,7 @@
           "check-open-brace",
           "check-whitespace"
       ],
-      "quotemark": [
-          true,
-          "single"
-      ],
+      "quotemark": false,
       "semicolon": [
           true,
           "always"

@@ -25,21 +25,21 @@ const CONTEXT_MENU_CONTENTS = {
 function setUpContextMenus() {
   CONTEXT_MENU_CONTENTS.forWindows.forEach(function(commandId) {
     chrome.contextMenus.create({
-      title: 'A: ' + commandId,
+      title: 'Show the Yesware sidebar',
       type: 'radio',
       id: 'A' + commandId,
       contexts: ['all']
     });
   });
 
-  CONTEXT_MENU_CONTENTS.forWindows.forEach(function(commandId) {
-    chrome.contextMenus.create({
-      title: 'B: ' + commandId,
-      type: 'checkbox',
-      id: 'B' + commandId,
-      contexts: ['all']
-    });
-  });
+  // CONTEXT_MENU_CONTENTS.forWindows.forEach(function(commandId) {
+  //   chrome.contextMenus.create({
+  //     title: 'B: ' + commandId,
+  //     type: 'checkbox',
+  //     id: 'B' + commandId,
+  //     contexts: ['all']
+  //   });
+  // });
 
   CONTEXT_MENU_CONTENTS.forSelection.forEach(function(commandId) {
     chrome.contextMenus.create({
