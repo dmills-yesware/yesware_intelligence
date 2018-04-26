@@ -1,0 +1,3 @@
+export const MESSAGES = {
+  TOGGLE_SIDEBAR: "TOGGLE_SIDEBAR"
+};

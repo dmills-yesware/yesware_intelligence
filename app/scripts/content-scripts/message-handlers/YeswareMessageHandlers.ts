@@ -1,18 +1,19 @@
 import {Hash} from '../../types/YeswareTypes';
 import {ToggleSidebarMessageHandler} from './ToggleSidebarMessageHandler';
-
-const handlers: Hash<Function> = {
-  toggle_sidebar: ToggleSidebarMessageHandler.call
-};
+import {MESSAGES} from '../../shared/Messages';
 
 export class YeswareMessageHandlers {
+  private static handlers: Hash<Function> = {};
+
   static initialize() {
     console.log("initializing message listeners");
+    this.handlers[MESSAGES.TOGGLE_SIDEBAR] = ToggleSidebarMessageHandler.call;
+
     chrome.runtime.onMessage.addListener(this.onMessage);
   }
 
-  private static onMessage(message: string) {
+  private static onMessage = (message: string) => {
     console.log("Received message: ", message);
-    handlers[message] && handlers[message]();
+    YeswareMessageHandlers.handlers[message] && YeswareMessageHandlers.handlers[message]();
   }
 }
