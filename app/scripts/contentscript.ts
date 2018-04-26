@@ -1,15 +1,10 @@
-// Enable chromereload by uncommenting this line:
 import 'chromereload/devonly';
-import { SidebarManager } from "./content-scripts/SidebarManager";
+import {SidebarManager} from "./content-scripts/SidebarManager";
+import {YeswareMessageHandlers} from './content-scripts/command-handlers/YeswareMessageHandlers';
 
-console.log(`Hello Yesware!`);
-
-// let sidebarContainer = document.body.appendChild(document.createElement("div"));
-// let shadowSidebar = sidebarContainer.attachShadow({ mode: 'open' });
-//
-// const $shadowSidebar = $(shadowSidebar);
+// This is the content script bootstrapping code
 
 SidebarManager.insertSidebar();
 SidebarManager.displaySalesforceRecord("David Mills", "dmills.test@gmail.com");
 
-
+YeswareMessageHandlers.initialize();

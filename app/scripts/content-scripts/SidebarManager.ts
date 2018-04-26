@@ -9,6 +9,11 @@ import {Hash} from '../types/YeswareTypes';
  */
 export class SidebarManager {
   static insertSidebar() {
+    // let sidebarContainer = document.body.appendChild(document.createElement("div"));
+    // let shadowSidebar = sidebarContainer.attachShadow({ mode: 'open' });
+    //
+    // const $shadowSidebar = $(shadowSidebar);
+
     $(document.body).append(`<div class="yw-sidebar-container">
                                <iframe name="yesware-sidebar"></iframe>
                              </div>`);

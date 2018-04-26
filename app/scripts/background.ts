@@ -1,7 +1,7 @@
 import 'chromereload/devonly';
 import {CSPHeaderRewriter} from './background/utilities/CSPHeaderRewriter';
-import {YeswareContextMenus} from './background/YeswareContextMenus';
-import {YeswareCommands} from './background/YeswareCommands';
+import {YeswareContextMenus} from './background/context-menus/YeswareContextMenus';
+import {YeswareCommands} from './background/commands/YeswareCommands';
 
 // This is the background bootstrapping code
 CSPHeaderRewriter.allowYeswareDomains();
