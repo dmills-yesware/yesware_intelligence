@@ -1,7 +1,15 @@
 // Enable chromereload by uncommenting this line:
 import 'chromereload/devonly';
-import * as $ from "jquery";
+import { SidebarManager } from "./content-scripts/SidebarManager";
 
-console.log(`Hello World! Content script`);
+console.log(`Hello Yesware!`);
 
-$("body").append(`<div>Hello World</div>`);
+// let sidebarContainer = document.body.appendChild(document.createElement("div"));
+// let shadowSidebar = sidebarContainer.attachShadow({ mode: 'open' });
+//
+// const $shadowSidebar = $(shadowSidebar);
+
+SidebarManager.insertSidebar();
+SidebarManager.showRecord("David Mills", "dmills.test@gmail.com");
+
+
