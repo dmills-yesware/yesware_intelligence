@@ -1,8 +1,10 @@
 import 'chromereload/devonly';
 import * as $ from 'jquery';
-import {DynamicFormUtility} from './DynamicFormUtility';
 import _ = require('lodash');
 import {Hash} from '../types/YeswareTypes';
+import {DynamicFormUtility} from './utilities/DynamicFormUtility';
+
+const containerClass = "yw-sidebar-container";
 
 /**
  * Basic Yesware Sidebar management utility methods
@@ -14,17 +16,21 @@ export class SidebarManager {
     //
     // const $shadowSidebar = $(shadowSidebar);
 
-    $(document.body).append(`<div class="yw-sidebar-container">
+    $(document.body).append(`<div class="${containerClass}">
                                <iframe name="yesware-sidebar"></iframe>
                              </div>`);
   }
 
+  static toggle() {
+    $(`.${containerClass}`).toggleClass("yw-sidebar-open");
+  }
+
   static hide() {
-    $(".sidebar-container").removeClass("yw-sidebar-open");
+    $(`.${containerClass}`).removeClass("yw-sidebar-open");
   }
 
   static show() {
-    $(".sidebar-container").addClass("yw-sidebar-open");
+    $(`.${containerClass}`).addClass("yw-sidebar-open");
   }
 
   static displaySalesforceRecord(name: string, email: string) {

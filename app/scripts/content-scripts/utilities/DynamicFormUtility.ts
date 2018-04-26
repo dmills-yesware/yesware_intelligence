@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 import * as $ from 'jquery';
-import {Hash} from '../types/YeswareTypes';
+import {Hash} from '../../types/YeswareTypes';
 
 export class DynamicFormUtility {
   /**

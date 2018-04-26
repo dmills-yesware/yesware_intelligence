@@ -1,6 +1,6 @@
 import 'chromereload/devonly';
 import {SidebarManager} from "./content-scripts/SidebarManager";
-import {YeswareMessageHandlers} from './content-scripts/command-handlers/YeswareMessageHandlers';
+import {YeswareMessageHandlers} from './content-scripts/message-handlers/YeswareMessageHandlers';
 
 // This is the content script bootstrapping code
 
