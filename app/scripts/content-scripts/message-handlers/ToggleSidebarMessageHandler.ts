@@ -1,7 +1,7 @@
 import {SidebarManager} from '../SidebarManager';
 
 export class ToggleSidebarMessageHandler {
-  static call() {
+  static invoke(data: any): void {
     SidebarManager.toggle();
   }
 }

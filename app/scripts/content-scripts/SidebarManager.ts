@@ -17,7 +17,7 @@ export class SidebarManager {
     // const $shadowSidebar = $(shadowSidebar);
 
     $(document.body).append(`<div class="${containerClass}">
-                               <iframe name="yesware-sidebar"></iframe>
+                               <iframe id="yesware-sidebar" name="yesware-sidebar"></iframe>
                              </div>`);
   }
 
@@ -33,7 +33,7 @@ export class SidebarManager {
     $(`.${containerClass}`).addClass("yw-sidebar-open");
   }
 
-  static displaySalesforceRecord(name: string, email: string) {
+  static displaySalesforceRecord(name: string|undefined, email: string|undefined) {
     this.postToSidebarIframe({
       from: [{
         email: email,

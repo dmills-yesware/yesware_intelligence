@@ -1,6 +1,7 @@
 import OnClickData = chrome.contextMenus.OnClickData;
 import Tab = chrome.tabs.Tab;
 import {ToggleSidebarContextMenu} from './ToggleSidebarContextMenu';
+import {SearchYeswareContextMenu} from './SearchYeswareContextMenu';
 
 export interface IContextMenu {
   title: string;
@@ -10,7 +11,8 @@ export interface IContextMenu {
 }
 
 const contextMenus: IContextMenu[] = [
-  new ToggleSidebarContextMenu()
+  new ToggleSidebarContextMenu(),
+  new SearchYeswareContextMenu()
 ];
 
 export class YeswareContextMenus {
@@ -19,21 +21,8 @@ export class YeswareContextMenus {
       contextMenus.forEach(contextMenu => {
         chrome.contextMenus.create(contextMenu);
       });
-      // chrome.contextMenus.create({
-      //   title: "Toggle the Yesware Sidebar",
-      //   id: "ToggleSidebar",
-      //   contexts: ["page"],
-      //
-      // });
-      //
-      // chrome.contextMenus.create({
-      //   title: `Search Yesware for "%s"`,
-      //   id: "SearchInSidebar",
-      //   contexts: ["selection"]
-      // });
     }
-
-    chrome.runtime.onInstalled.addListener(function() {
+    chrome.runtime.onInstalled.addListener(function () {
       installContextMenus();
     });
   }
