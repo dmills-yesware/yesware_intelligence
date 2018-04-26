@@ -2,6 +2,7 @@ import 'chromereload/devonly';
 import * as $ from 'jquery';
 import {DynamicFormUtility} from './DynamicFormUtility';
 import _ = require('lodash');
+import {Hash} from '../types/YeswareTypes';
 
 export class SidebarManager {
   static insertSidebar() {

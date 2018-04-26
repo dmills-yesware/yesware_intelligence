@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
 import * as $ from 'jquery';
+import {Hash} from '../types/YeswareTypes';
 
 export class DynamicFormUtility {
   /**
@@ -12,8 +13,8 @@ export class DynamicFormUtility {
    * @param {Object} inputFields - A hash of name/value pairs to be
    *     injected as hidden form inputs and be submitted as form data.
    */
-  static submit(formAttributes: KeyValuePairs<string>,
-                inputFields: KeyValuePairs<string>) {
+  static submit(formAttributes: Hash<string>,
+                inputFields: Hash<string>) {
 
     let attrs = _.extend({
       method: "post",

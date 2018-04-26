@@ -47,8 +47,10 @@
     }
   ],
   "permissions": [
+    "<all_urls>",
     "contextMenus",
     "tabs",
-    "<all_urls>"
+    "webRequest",
+    "webRequestBlocking"
   ]
 }

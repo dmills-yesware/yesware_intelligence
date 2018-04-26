@@ -1,3 +1,3 @@
-interface Hash<T> {
+export interface Hash<T> {
   [key: string]: T;
 }
