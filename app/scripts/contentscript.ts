@@ -10,6 +10,6 @@ console.log(`Hello Yesware!`);
 // const $shadowSidebar = $(shadowSidebar);
 
 SidebarManager.insertSidebar();
-SidebarManager.showRecord("David Mills", "dmills.test@gmail.com");
+SidebarManager.displaySalesforceRecord("David Mills", "dmills.test@gmail.com");
 
 

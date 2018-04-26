@@ -30,6 +30,15 @@
   "omnibox": {
     "keyword": "yes"
   },
+  "commands": {
+    "toggle_yesware": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Toggle Yesware"
+    }
+  },
   "content_scripts": [
     {
       "matches": [
