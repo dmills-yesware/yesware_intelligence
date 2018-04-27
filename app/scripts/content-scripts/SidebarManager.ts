@@ -35,12 +35,11 @@ export class SidebarManager {
     $(`.${containerClass}`).addClass("yw-sidebar-open");
   }
 
-  static displaySalesforceRecord(name: string|undefined, email: string|undefined) {
+  static displaySalesforceRecord(searchTerm: string|undefined) {
     this.postToSidebarIframe({
-      from: [{
-        email: email,
-        name: name
-      }]
+      search: {
+        term: searchTerm
+      }
     });
   }
 

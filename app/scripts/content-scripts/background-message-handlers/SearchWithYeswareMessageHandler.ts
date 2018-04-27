@@ -4,10 +4,10 @@ export class SearchWithYeswareMessageHandler {
   static invoke(searchTerm: string) {
     SidebarManager.show();
 
-    let isEmail = SearchWithYeswareMessageHandler.isEmail(searchTerm);
-    let name = isEmail ? undefined : searchTerm;
-    let email = isEmail ? searchTerm : undefined;
-    SidebarManager.displaySalesforceRecord(name, email);
+    // let isEmail = SearchWithYeswareMessageHandler.isEmail();
+    // let name = isEmail ? undefined : searchTerm;
+    // let email = isEmail ? searchTerm : undefined;
+    SidebarManager.displaySalesforceRecord(searchTerm);
   }
 
   private static emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

@@ -7,7 +7,7 @@ import {TouchpointsManager} from './content-scripts/touchpoints/TouchpointsManag
 // This is the content script bootstrapping code. It's is injected into every page.
 
 SidebarManager.insertSidebar();
-SidebarManager.displaySalesforceRecord("David Mills", "dmills.test@gmail.com");
+SidebarManager.displaySalesforceRecord("dmills.test@gmail.com");
 
 BackgroundMessageHandlers.initialize();
 PostMessageHandlers.initialize();
