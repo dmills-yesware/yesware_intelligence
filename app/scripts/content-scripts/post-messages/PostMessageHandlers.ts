@@ -20,7 +20,9 @@ export class PostMessageHandlers {
   }
 
   private static onMessage = (e: any) => {
-    let handler = PostMessageHandlers.handlers.get(e.data.type);
-    handler && handler(e.data);
+    console.log("Received post message:", e);
+    let message = e.data;
+    let handler = PostMessageHandlers.handlers.get(message.type);
+    handler && handler(message);
   }
 }

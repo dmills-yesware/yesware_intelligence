@@ -28,4 +28,17 @@ export class TouchpointsManager {
   static show() {
     $(`.${containerClass}`).show();
   }
+
+  static addFromSalesforce(data: any) {
+    // Chrome doesn't allow direct iframe access from the extension's context.
+    // Instead, we can inject a <script> tag.
+    let $script = $('<script>\
+                           document.getElementById("yesware-touchpoints")\
+                               .contentWindow.postMessage(\'' + JSON.stringify(data) + '\', "*");\
+                       </script>');
+
+    $script
+      .appendTo("body")
+      .remove();
+  }
 }

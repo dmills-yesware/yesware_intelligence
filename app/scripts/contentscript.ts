@@ -6,6 +6,8 @@ import {TouchpointsManager} from './content-scripts/touchpoints/TouchpointsManag
 
 // This is the content script bootstrapping code. It's is injected into every page.
 
+console.log("Hello Yesware!");
+
 SidebarManager.insertSidebar();
 SidebarManager.displaySalesforceRecord("dmills.test@gmail.com");
 
