@@ -4,8 +4,9 @@ export class SearchWithYeswareMessageHandler {
   static invoke(searchTerm: string) {
     SidebarManager.show();
 
-    let name = this.isEmail(searchTerm) ? undefined : searchTerm;
-    let email = this.isEmail(searchTerm) ? searchTerm : undefined;
+    let isEmail = SearchWithYeswareMessageHandler.isEmail(searchTerm);
+    let name = isEmail ? undefined : searchTerm;
+    let email = isEmail ? searchTerm : undefined;
     SidebarManager.displaySalesforceRecord(name, email);
   }
 
