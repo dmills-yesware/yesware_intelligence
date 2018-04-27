@@ -7,7 +7,7 @@ type BackgroundMessageHandler = (data: any) => void;
 /**
  * Content script dispatcher for messages sent from the background page
  */
-export class YeswareMessageHandlers {
+export class BackgroundMessageHandlers {
   private static handlers: Map<MessageTypes, BackgroundMessageHandler>;
 
   static initialize() {
@@ -22,7 +22,7 @@ export class YeswareMessageHandlers {
 
   private static onMessage = (message: IBackgroundMessage) => {
     console.log("Received message: ", message);
-    let handler = YeswareMessageHandlers.handlers.get(message.type);
+    let handler = BackgroundMessageHandlers.handlers.get(message.type);
     handler && handler(message.data);
   }
 }

@@ -6,4 +6,4 @@ export interface IBackgroundMessage {
 export enum MessageTypes {
   ToggleSidebar = "TOGGLE_SIDEBAR",
   SearchWithYesware = "SEARCH_WITH_YESWARE"
-};
+}

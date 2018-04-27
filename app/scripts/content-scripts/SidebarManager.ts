@@ -10,6 +10,8 @@ const containerClass = "yw-sidebar-container";
  * Basic Yesware Sidebar management utility methods
  */
 export class SidebarManager {
+  private static isFirstLoad: boolean = true;
+
   static insertSidebar() {
     // let sidebarContainer = document.body.appendChild(document.createElement("div"));
     // let shadowSidebar = sidebarContainer.attachShadow({ mode: 'open' });
@@ -43,24 +45,46 @@ export class SidebarManager {
   }
 
   private static postToSidebarIframe(fields: Hash<any>) {
-    let url = 'https://localdev.yetihut.com/api/v1/crm/sidebar?mode=sidebar&hasTaskList=true&platform=gmail&hasTelephony=true';
+    if (this.isFirstLoad) {
+      this.isFirstLoad = false;
 
-    let encodedFields: Hash<string> = {};
-    Object.keys(fields).forEach(key => {
-      let value = fields[key];
-      if (typeof value === "object") {
-        value = JSON.stringify(value);
-      }
-      encodedFields[key] = encodeURIComponent(value);
-    });
+      let url = 'https://localdev.yetihut.com/api/v1/crm/sidebar?mode=sidebar&hasTaskList=true&platform=gmail&hasTelephony=true';
 
-    let inputFields = _.extend(encodedFields, {
-      auth_token: 'B16BaMyeJACQxQcdYRre'
-    });
+      let encodedFields: Hash<string> = {};
+      Object.keys(fields).forEach(key => {
+        let value = fields[key];
+        if (typeof value === "object") {
+          value = JSON.stringify(value);
+        }
+        encodedFields[key] = encodeURIComponent(value);
+      });
 
-    DynamicFormUtility.submit({
-      action: url,
-      target: 'yesware-sidebar'
-    }, inputFields);
+      let inputFields = _.extend(encodedFields, {
+        auth_token: 'B16BaMyeJACQxQcdYRre'
+      });
+
+      DynamicFormUtility.submit({
+        action: url,
+        target: 'yesware-sidebar'
+      }, inputFields);
+
+    } else {
+
+      let encodedData = encodeURIComponent(JSON.stringify(fields))
+        .replace(/'/g, "%27")
+        .replace(/\(/g, "%28")
+        .replace(/\)/g, "%29");
+
+      // Chrome doesn't allow direct iframe access from the extension's context.
+      // Instead, we can inject a <script> tag.
+      let $script = $('<script>\
+                           document.getElementById("yesware-sidebar")\
+                               .contentWindow.postMessage(\'' + encodedData + '\', "*");\
+                       </script>');
+
+      $script
+        .appendTo("body")
+        .remove();
+    }
   }
 }
