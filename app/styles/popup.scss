@@ -2,12 +2,16 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  width: 285px;
 }
 .yw-sidebar-container {
   height: 600px; // Sadly, can't go any taller
+  width: 300px;
+  margin: 0;
 
   iframe {
     height: 100%;
+    width: 100%;
     border: none;
   }
 }
